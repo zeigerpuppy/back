@@ -33,6 +33,10 @@ RUN apk --no-cache add python3 gettext postgresql-dev libxslt-dev libxml2-dev li
     && rm /srv/taiga/back/settings/celery.py \
     && rm /etc/nginx/conf.d/default.conf
 
+# Install gitlab-auth plugin
+RUN pip3 install --no-cache-dir taiga-contrib-github-auth
+#
+
 EXPOSE 80
 
 WORKDIR /srv/taiga/back
